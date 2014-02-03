@@ -1,0 +1,61 @@
+C:\Projects\FakeSmtp3\FakeSmtp\FakeSmtp\obj\Debug\FakeSmtp.csprojResolveAssemblyReference.cache
+C:\Projects\FakeSmtp3\FakeSmtp\FakeSmtp\bin\FakeSmtp.dll
+C:\Projects\FakeSmtp3\FakeSmtp\FakeSmtp\bin\FakeSmtp.pdb
+C:\Projects\FakeSmtp3\FakeSmtp\FakeSmtp\bin\Microsoft.Web.Infrastructure.dll
+C:\Projects\FakeSmtp3\FakeSmtp\FakeSmtp\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
+C:\Projects\FakeSmtp3\FakeSmtp\FakeSmtp\bin\netDumbster.dll
+C:\Projects\FakeSmtp3\FakeSmtp\FakeSmtp\bin\Newtonsoft.Json.dll
+C:\Projects\FakeSmtp3\FakeSmtp\FakeSmtp\bin\System.Net.Http.Formatting.dll
+C:\Projects\FakeSmtp3\FakeSmtp\FakeSmtp\bin\System.Web.Helpers.dll
+C:\Projects\FakeSmtp3\FakeSmtp\FakeSmtp\bin\System.Web.Http.dll
+C:\Projects\FakeSmtp3\FakeSmtp\FakeSmtp\bin\System.Web.Http.WebHost.dll
+C:\Projects\FakeSmtp3\FakeSmtp\FakeSmtp\bin\System.Web.Mvc.dll
+C:\Projects\FakeSmtp3\FakeSmtp\FakeSmtp\bin\System.Web.Razor.dll
+C:\Projects\FakeSmtp3\FakeSmtp\FakeSmtp\bin\System.Web.WebPages.Deployment.dll
+C:\Projects\FakeSmtp3\FakeSmtp\FakeSmtp\bin\System.Web.WebPages.dll
+C:\Projects\FakeSmtp3\FakeSmtp\FakeSmtp\bin\System.Web.WebPages.Razor.dll
+C:\Projects\FakeSmtp3\FakeSmtp\FakeSmtp\bin\netDumbster.pdb
+C:\Projects\FakeSmtp3\FakeSmtp\FakeSmtp\bin\netDumbster.xml
+C:\Projects\FakeSmtp3\FakeSmtp\FakeSmtp\bin\Newtonsoft.Json.xml
+C:\Projects\FakeSmtp3\FakeSmtp\FakeSmtp\bin\System.Net.Http.Formatting.xml
+C:\Projects\FakeSmtp3\FakeSmtp\FakeSmtp\bin\System.Web.Helpers.xml
+C:\Projects\FakeSmtp3\FakeSmtp\FakeSmtp\bin\System.Web.Http.xml
+C:\Projects\FakeSmtp3\FakeSmtp\FakeSmtp\bin\System.Web.Http.WebHost.xml
+C:\Projects\FakeSmtp3\FakeSmtp\FakeSmtp\bin\System.Web.Mvc.xml
+C:\Projects\FakeSmtp3\FakeSmtp\FakeSmtp\bin\System.Web.Razor.xml
+C:\Projects\FakeSmtp3\FakeSmtp\FakeSmtp\bin\System.Web.WebPages.xml
+C:\Projects\FakeSmtp3\FakeSmtp\FakeSmtp\bin\System.Web.WebPages.Deployment.xml
+C:\Projects\FakeSmtp3\FakeSmtp\FakeSmtp\bin\System.Web.WebPages.Razor.xml
+C:\Projects\FakeSmtp3\FakeSmtp\FakeSmtp\obj\Debug\FakeSmtp.dll
+C:\Projects\FakeSmtp3\FakeSmtp\FakeSmtp\obj\Debug\FakeSmtp.pdb
+C:\Projects\FakeSmtp3\FakeSmtp\FakeSmtp\bin\artezio.png
+C:\Projects\FakeSmtp\FakeSmtp\bin\artezio.png
+C:\Projects\FakeSmtp\FakeSmtp\bin\FakeSmtp.dll
+C:\Projects\FakeSmtp\FakeSmtp\bin\FakeSmtp.pdb
+C:\Projects\FakeSmtp\FakeSmtp\bin\netDumbster.dll
+C:\Projects\FakeSmtp\FakeSmtp\bin\System.Web.Mvc.dll
+C:\Projects\FakeSmtp\FakeSmtp\bin\System.Web.WebPages.dll
+C:\Projects\FakeSmtp\FakeSmtp\bin\System.Web.WebPages.Razor.dll
+C:\Projects\FakeSmtp\FakeSmtp\bin\netDumbster.pdb
+C:\Projects\FakeSmtp\FakeSmtp\bin\netDumbster.xml
+C:\Projects\FakeSmtp\FakeSmtp\bin\System.Web.Mvc.xml
+C:\Projects\FakeSmtp\FakeSmtp\bin\System.Web.WebPages.xml
+C:\Projects\FakeSmtp\FakeSmtp\bin\System.Web.WebPages.Razor.xml
+C:\Projects\FakeSmtp\FakeSmtp\obj\Debug\FakeSmtp.dll
+C:\Projects\FakeSmtp\FakeSmtp\obj\Debug\FakeSmtp.pdb
+C:\Projects\FakeSmtp - Copy\FakeSmtp\bin\artezio.png
+C:\Projects\FakeSmtp - Copy\FakeSmtp\bin\FakeSmtp.dll
+C:\Projects\FakeSmtp - Copy\FakeSmtp\bin\FakeSmtp.pdb
+C:\Projects\FakeSmtp - Copy\FakeSmtp\bin\netDumbster.dll
+C:\Projects\FakeSmtp - Copy\FakeSmtp\bin\System.Web.Mvc.dll
+C:\Projects\FakeSmtp - Copy\FakeSmtp\bin\System.Web.WebPages.dll
+C:\Projects\FakeSmtp - Copy\FakeSmtp\bin\System.Web.WebPages.Razor.dll
+C:\Projects\FakeSmtp - Copy\FakeSmtp\bin\netDumbster.pdb
+C:\Projects\FakeSmtp - Copy\FakeSmtp\bin\netDumbster.xml
+C:\Projects\FakeSmtp - Copy\FakeSmtp\bin\System.Web.Mvc.xml
+C:\Projects\FakeSmtp - Copy\FakeSmtp\bin\System.Web.WebPages.xml
+C:\Projects\FakeSmtp - Copy\FakeSmtp\bin\System.Web.WebPages.Razor.xml
+C:\Projects\FakeSmtp - Copy\FakeSmtp\obj\Debug\FakeSmtp.csprojResolveAssemblyReference.cache
+C:\Projects\FakeSmtp - Copy\FakeSmtp\obj\Debug\FakeSmtp.dll
+C:\Projects\FakeSmtp - Copy\FakeSmtp\obj\Debug\FakeSmtp.pdb
+C:\Projects\FakeSmtp\FakeSmtp\obj\Debug\FakeSmtp.csprojResolveAssemblyReference.cache

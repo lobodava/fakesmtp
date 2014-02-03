@@ -1,0 +1,79 @@
+﻿@{
+    Layout = "../Shared/_Layout.cshtml";;
+}
+
+<div class="container">
+	
+	@using (Html.BeginForm("Start", "Home", FormMethod.Post, new {@class = "form-horizontal", role = "form"}))
+	{
+
+		<p></p>
+		<div class="form-group">
+			<div class="col-sm-2">
+				<input class="form-control text-center" type="text" value="@ViewBag.ServerName"  readonly="readonly">
+			</div>
+			<div class="col-sm-10">
+				<p class="form-control-static">&#8211 Fake Smtp Server host name or address (this parameter can not be changed from here)</p>
+			</div>
+		</div>
+
+		<br/>
+	 
+		<div class="form-group">
+			<div class="col-sm-2">
+				<input id="port" name="port" class="form-control text-center" type="text" value="@ViewBag.Port"  @(ViewBag.IsSmtpServerOn ? "readonly='readonly'" : "")>
+			</div>
+			<div class="col-sm-10">
+				<p class="form-control-static @(ViewBag.IsSmtpServerOn ? "text-muted" : "")">&#8211 Port for the Fake Smtp Server to listen</p>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<div class="col-sm-2">
+				<button type="submit" class="btn btn-success form-control @(ViewBag.IsSmtpServerOn ? "disabled" : "")">Start</button>
+			</div>
+			<div class="col-sm-10">
+				<p class="form-control-static @(ViewBag.IsSmtpServerOn ? "text-muted" : "")">&#8211 Start the Fake Smtp Server</p>
+			</div>
+		</div>
+
+		<br/>
+
+		<div class="form-group">
+			<div class="col-sm-2">
+				<a class="btn btn-danger form-control @(ViewBag.IsSmtpServerOn ? "" : "disabled")" href='@(Url.Action("Stop", "Home"))'>Stop</a>
+			</div>
+			<div class="col-sm-10">
+				<p class="form-control-static @(ViewBag.IsSmtpServerOn ? "" : "text-muted")">&#8211 Stop the Fake Smtp Server</p>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-sm-2">
+				<a class="btn btn-warning form-control" href='@(Url.Action("Clear", "Home"))'>Clear <span class="badge">@ViewBag.EmailCount</span></a>
+			</div>
+			<div class="col-sm-10">
+				<p class="form-control-static">&#8211 Clear all received email messages</p>
+			</div>
+		</div>
+	 
+		<br/>
+	 
+		<div class="form-group">
+			<div class="col-sm-2">
+				<a class="btn btn-info form-control @(ViewBag.IsSmtpServerOn ? "" : "disabled")" href='@(Url.Action("TestEmail", "Home"))'>Test email</a>
+			</div>
+			<div class="col-sm-10">
+				<p class="form-control-static @(ViewBag.IsSmtpServerOn ? "" : "text-muted")">&#8211 Send test email </p>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-sm-2">
+				<a class="btn btn-info form-control @(ViewBag.IsSmtpServerOn ? "" : "disabled")" href='@(Url.Action("TestEmailPlus", "Home"))'>Test email +</a>
+			</div>
+			<div class="col-sm-10">
+				<p class="form-control-static @(ViewBag.IsSmtpServerOn ? "" : "text-muted")">&#8211 Send test email with attachment</p>
+			</div>
+		</div>
+	}
+
+</div>

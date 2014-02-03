@@ -1,0 +1,98 @@
+﻿@model FakeSmtp.Models.Email
+@{
+    Layout = "../Shared/_Layout.cshtml";;
+}
+
+<style>
+	pre {
+		margin: 0;
+		padding: 0;
+		border: 0 none;
+		background-color: transparent;
+	}
+</style>
+
+<div class="container">
+	
+	@if (Model == null)
+	{
+		<div class="alert alert-danger">Email with such an Id is not found</div>
+	}
+	else
+	{
+		<div class="panel panel-primary">
+			<div class="panel-heading"><b>Email # @Model.Id</b> <span class="pull-right">Sent: @Model.SentDate</span></div>
+			
+			<ul class="list-group">
+				<li class="list-group-item">
+					<div class="row"> 
+						<div class="col-sm-2"><b class="text-primary" style="margin-right: 10px;">From:</b></div>
+						<div class="col-sm-10">@Model.From</div>
+					</div>
+				</li>
+				<li class="list-group-item">
+					<div class="row">
+						<div class="col-sm-2"><b class="text-primary" style="margin-right: 5px;">To:</b></div>
+						<div class="col-sm-10">@Model.To</div>
+					</div>
+				</li>
+				<li class="list-group-item">
+					<div class="row">
+						<div class="col-sm-2"><b class="text-primary" style="margin-right: 5px;">Cc:</b></div>
+						<div class="col-sm-10">@Model.Cc</div>
+					</div>
+				</li>
+				<li class="list-group-item">
+					<div class="row">
+						<div class="col-sm-2"><b class="text-primary" style="margin-right: 5px;">Bcc:</b></div>
+						<div class="col-sm-10">@Model.Bcc</div>
+					</div>
+				</li>
+				<li class="list-group-item">
+					<div class="row">
+						<div class="col-sm-2"><b class="text-primary" style="margin-right: 5px;">Importance:</b></div>
+						<div class="col-sm-10">@Model.Importance</div>
+					</div>
+				</li>
+				<li class="list-group-item">
+					<div class="row">
+						<div class="col-sm-2"><b class="text-primary" style="margin-right: 5px;">Subject:</b></div>
+						<div class="col-sm-10">@Model.Subject</div>
+					</div>
+				</li>		
+				@if (Model.Attachments.Count > 0)
+				{
+					<li class="list-group-item">
+						<div class="row">
+							<div class="col-sm-2"><b class="text-primary" style="margin-right: 5px;">Attachments:</b></div>
+							<div class="col-sm-10">
+								@for(var i = 0; i < Model.Attachments.Count; i++) 
+								{
+									<a href='@(Url.Action("Download", "Home", new { id = Model.Id, attachmentId = Model.Attachments[i].Id }))'>@Model.Attachments[i].Name  (@Model.Attachments[i].Size)</a>
+									if (i < Model.Attachments.Count - 1) { @(", ") }	
+								}
+							</div>
+						</div>	
+					</li>
+				}
+				<li class="list-group-item">
+					@if (@Model.IsBodyHtml)
+					{
+						@Html.Raw(Model.Body)
+					}
+					else
+					{
+						<pre>@Model.Body</pre>
+					}
+				</li>
+			</ul>
+		</div>
+	
+		<div class="panel panel-warning">
+			<div class="panel-heading">Raw Data</div>
+			<div class="panel-body">
+				<pre class="text-warning">@Model.RawData</pre>
+			</div>
+		</div>
+	 }
+</div>

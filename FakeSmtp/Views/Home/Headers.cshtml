@@ -1,0 +1,51 @@
+﻿@using FakeSmtp.Models
+@model List<FakeSmtp.Models.Email>
+
+@{
+    Layout = "../Shared/_Layout.cshtml";
+}
+
+<style>
+	table tr td a {
+		display:block;
+		height:100%;
+		width:100%;
+		text-decoration: none !important;
+		color: inherit;
+	}
+	table tr td a:hover,
+	table tr td a:visited {
+		color: inherit; 
+	}
+
+</style>
+
+
+<div class="container">
+	<table class="table table-hover">
+		<thead>
+			<tr>
+				<th>#</th>
+				<th><span class="glyphicon glyphicon-paperclip"></span></th>
+				<th>From</th>
+				<th>To</th>
+				<th>Subject</th>
+				<th>Sent</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var email in Model)
+			{
+				<tr>
+					<td><a href='@(Url.Action("Message", "Home", new {id = email.Id}))' tabIndex="-1">@email.Id</a></td>
+					<td><a href='@(Url.Action("Message", "Home", new {id = email.Id}))' tabIndex="-1">@Html.Raw(email.Attachments.Count == 0 ? "" : "<span class='glyphicon glyphicon-paperclip'></span>")</a></td>
+					<td><a href='@(Url.Action("Message", "Home", new {id = email.Id}))' tabIndex="-1">@email.From</a></td>
+					<td><a href='@(Url.Action("Message", "Home", new {id = email.Id}))' tabIndex="-1">@email.To</a></td>
+					<td><a href='@(Url.Action("Message", "Home", new {id = email.Id}))' tabIndex="-1">@email.Subject</a></td>
+					<td><a href='@(Url.Action("Message", "Home", new {id = email.Id}))' tabIndex="-1">@email.SentDate</a></td>
+				</tr>
+			}
+		</tbody>
+	</table>
+</div>
+

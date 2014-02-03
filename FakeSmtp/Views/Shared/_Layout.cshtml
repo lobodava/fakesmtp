@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>@(string.IsNullOrEmpty(ViewBag.Title as string) ? "Fake Smtp" : ViewBag.Title.ToString())</title>
+	
+	<link rel="stylesheet" href="/Content/css/bootstrap.min.css">
+	
+	<style>
+		body {
+			padding-top: 70px;
+		}
+	</style>
+
+	<script type="text/javascript" src="/Scripts/modernizr-2.6.2.js"></script>
+
+</head>
+	<body>
+		
+		@Html.Partial("../Home/NavBar")
+
+		@RenderBody()
+
+	</body>
+</html>

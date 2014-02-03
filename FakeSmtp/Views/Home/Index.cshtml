@@ -13,17 +13,17 @@
 		<li>@(Html.ActionLink("Headers of received email massages", "Headers", "Home")) as a table.</li>
 		<li>@Html.ActionLink("The list of email messages in a compact view", "Messages", "Home"), with possibility to read the email message body and download attacments.</li>
 		<li>Every email message in full view including raw data which was received by Fake Smtp server.
-			<span class="text-muted">In order to view a separate email message in full view - click on a row in the headers table or on a email message title bar in the list view.</span> </li>
+			<span class="text-muted">In order to view a separate email message in full view - click on a row in the headers table or on an email message title bar in the list view.</span> </li>
 	</ul>
 	
-	<p>@Html.ActionLink("The setting page", "Settings", "Home") allows to:</p>
+	<p>@Html.ActionLink("The setting page", "Settings", "Home") allows seeing:</p>
 	<ul>
 		<li>See a name or address for a host of the Fake Smtp server</li>
 		<li>Assign a port for the Fake Smtp server to listen and receive email messages.</li>
-		<li>Start the Fake Smtp server with the giving port. <span class="text-muted">Herewith early received messages are beeing deleted from memory.</span></li>
+		<li>Start the Fake Smtp server with the giving port. <span class="text-muted">Herewith early received messages are being deleted from memory.</span></li>
 		<li>Stop the Fake Smtp server. <span class="text-muted">Herewith early received email messages stays in memory and are available for review, while new messages are ignored.</span></li>
 		<li>Clear (delete) early received email messages from memory of the Fake Smtp server.</li>
-		<li>Send test email message to the Fake Smtp сервер (with or without attacment).</li>
+		<li>Send test email message to the Fake Smtp сервер (with or without attachment).</li>
 	</ul>
 	
 	<p>The regular email message can be sent to the Fake Smtp server using C# code, for instance. <span class="text-muted">Host and Port values can be taken from the @Html.ActionLink("settings page", "Settings", "Home")</span>:</p>

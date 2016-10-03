@@ -63,4 +63,4 @@ using (var smtpClient = new System.Net.Mail.SmtpClient {Host = "localhost", Port
 ![Fake Smtp Setting Page](https://github.com/lobodava/fakesmtp/blob/master/ScreenShots/FakeSmtp4.png)
 
 ## About
-This project was created as part of the **open source contribution program** in [Artezio](http://www.artezio.com/) company.
+This project was created as part of the *open source contribution program* in [Artezio](http://www.artezio.com/) company.

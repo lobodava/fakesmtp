@@ -1,4 +1,4 @@
-# Fake Smtp - web interface for fake smtp server
+# Fake Smtp -  a web interface for the fake smtp server
 
 ##The problem solved
 
@@ -61,3 +61,6 @@ using (var smtpClient = new System.Net.Mail.SmtpClient {Host = "localhost", Port
 ###One message page with a view of raw data
 
 ![Fake Smtp Setting Page](https://github.com/lobodava/fakesmtp/blob/master/ScreenShots/FakeSmtp4.png)
+
+## About
+This project was created as part of the **open source contribution program** in [Artezio](http://www.artezio.com/) company.

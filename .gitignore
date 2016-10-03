@@ -1,3 +1,6 @@
-
+/.vs
+/Deploy
 /FakeSmtp/bin
 /FakeSmtp/obj
+/packages
+/*.suo

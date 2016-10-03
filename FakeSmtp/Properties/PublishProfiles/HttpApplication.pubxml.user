@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>C:\Projects\FakeSmtp\Deploy</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="artezio.png">
+      <publishTime>01/31/2014 11:31:26</publishTime>
+    </File>
+    <File Include="bin/artezio.png">
+      <publishTime>01/31/2014 11:31:26</publishTime>
+    </File>
+    <File Include="bin/FakeSmtp.dll">
+      <publishTime>02/13/2014 12:02:16</publishTime>
+    </File>
+    <File Include="bin/netDumbster.dll">
+      <publishTime>01/31/2014 11:37:43</publishTime>
+    </File>
+    <File Include="bin/System.Web.Mvc.dll">
+      <publishTime>01/31/2014 11:26:48</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.dll">
+      <publishTime>01/31/2014 11:26:49</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Razor.dll">
+      <publishTime>01/31/2014 11:26:49</publishTime>
+    </File>
+    <File Include="Content/bootstrap.min.css">
+      <publishTime>01/31/2014 11:27:53</publishTime>
+    </File>
+    <File Include="Content/css/bootstrap.min.css">
+      <publishTime>01/31/2014 11:27:53</publishTime>
+    </File>
+    <File Include="Content/fonts/glyphicons-halflings-regular.svg">
+      <publishTime>01/31/2014 11:27:53</publishTime>
+    </File>
+    <File Include="Content/img/logo.png">
+      <publishTime>01/31/2014 11:27:53</publishTime>
+    </File>
+    <File Include="FakeSmtpService.svc">
+      <publishTime>01/31/2014 12:47:02</publishTime>
+    </File>
+    <File Include="Global.asax">
+      <publishTime>01/31/2014 11:30:20</publishTime>
+    </File>
+    <File Include="packages.config">
+      <publishTime>01/31/2014 18:16:42</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap.js">
+      <publishTime>01/31/2014 11:29:23</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap.min.js">
+      <publishTime>01/31/2014 11:29:23</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.8.2.min.js">
+      <publishTime>01/31/2014 11:29:24</publishTime>
+    </File>
+    <File Include="Scripts/modernizr-2.6.2.js">
+      <publishTime>01/31/2014 11:29:24</publishTime>
+    </File>
+    <File Include="Scripts/_references.js">
+      <publishTime>01/31/2014 11:29:24</publishTime>
+    </File>
+    <File Include="Views/Home/Error.cshtml">
+      <publishTime>02/03/2014 10:28:47</publishTime>
+    </File>
+    <File Include="Views/Home/Headers.cshtml">
+      <publishTime>02/13/2014 11:53:26</publishTime>
+    </File>
+    <File Include="Views/Home/Index.cshtml">
+      <publishTime>02/03/2014 14:17:13</publishTime>
+    </File>
+    <File Include="Views/Home/Message.cshtml">
+      <publishTime>01/31/2014 17:26:03</publishTime>
+    </File>
+    <File Include="Views/Home/Messages.cshtml">
+      <publishTime>02/10/2014 15:49:57</publishTime>
+    </File>
+    <File Include="Views/Home/NavBar.cshtml">
+      <publishTime>01/31/2014 18:14:59</publishTime>
+    </File>
+    <File Include="Views/Home/Paging.cshtml">
+      <publishTime>02/13/2014 11:53:26</publishTime>
+    </File>
+    <File Include="Views/Home/Settings.cshtml">
+      <publishTime>02/13/2014 12:00:35</publishTime>
+    </File>
+    <File Include="Views/Shared/_Layout.cshtml">
+      <publishTime>02/10/2014 13:31:54</publishTime>
+    </File>
+    <File Include="Views/Web.config">
+      <publishTime>01/31/2014 11:26:43</publishTime>
+    </File>
+    <File Include="Views/_ViewStart.cshtml">
+      <publishTime>01/31/2014 11:28:56</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>02/10/2014 15:54:29</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

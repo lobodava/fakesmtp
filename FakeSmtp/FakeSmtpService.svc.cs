@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.ServiceModel;
-using System.Text;
+﻿using System.Collections.Generic;
 using FakeSmtp.Models;
 using FakeSmtp.Repositories;
 
@@ -13,7 +8,12 @@ namespace FakeSmtp
 	{
 		public List<Email> GetReceivedEmails()
 		{
-			return MessageRepository.GetReceivedEmails(true);
+			return MessageRepository.GetReceivedEmails();
+		}
+
+		public static List<Email> GetReceivedEmails(int pageSize, int pageNumber) 
+		{
+			return MessageRepository.GetReceivedEmails(pageSize, pageNumber);
 		}
 
 		public Email GetEmailById(int emailId)
@@ -31,9 +31,9 @@ namespace FakeSmtp
 			return MessageRepository.GetAttachmentBytesById(emailId, attachmentId);
 		}
 		
-		public void Start(int port)
+		public void Start(int? port, int? limit)
 		{
-			MessageRepository.Start(port);
+			MessageRepository.Start(port, limit);
 		}
 
 		public void Stop()

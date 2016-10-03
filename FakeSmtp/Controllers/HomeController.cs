@@ -1,8 +1,10 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Net.Mime;
 using System.Web.Mvc;
+using FakeSmtp.Models;
 using FakeSmtp.Repositories;
-using netDumbster.smtp;
+
 
 namespace FakeSmtp.Controllers
 {
@@ -11,23 +13,52 @@ namespace FakeSmtp.Controllers
     {
         public ActionResult Index()
         {
-			//return RedirectToAction("Settings");
 			return View();
         }
 
-		public ActionResult Headers()
+		public ActionResult Headers(int? pageSize, int? pageNumber)
 	    {
-			var model = MessageRepository.GetReceivedEmails();
-			
+			var model = GetPagedEmails(pageSize, pageNumber);
+
 			return View(model);
 	    }
 
-	    public ActionResult Messages()
-	    {
-		    var model = MessageRepository.GetReceivedEmails();
-			
+		public ActionResult Messages(int? pageSize, int? pageNumber)
+		{
+			var model = GetPagedEmails(pageSize, pageNumber);
 			return View(model);
 	    }
+
+		private List<Email> GetPagedEmails(int? pageSize, int? pageNumber)
+		{
+			var session = System.Web.HttpContext.Current.Session;
+
+			var sessionPageSize = (int) ( pageSize ?? System.Web.HttpContext.Current.Session["PageSize"] ?? 10 );
+			var currentPageNumber =  (int) ( pageNumber ?? System.Web.HttpContext.Current.Session["PageNumber"] ?? 1 );
+
+			if (sessionPageSize == 0 || MvcApplication.ReceivedEmails.Count() < sessionPageSize * (currentPageNumber - 1))
+			{
+				currentPageNumber = 1;
+			}
+			
+			session["PageSize"] = sessionPageSize;
+			session["PageNumber"] = currentPageNumber;
+			
+			ViewBag.PageSize = sessionPageSize;
+			ViewBag.PageNumber = currentPageNumber;
+
+			sessionPageSize = (sessionPageSize == 0) ? int.MaxValue : sessionPageSize;
+
+			ViewBag.PageAnchors = MessageRepository.GetPageAnchors(MvcApplication.ReceivedEmails.Count(), sessionPageSize, currentPageNumber);
+			
+			var model = MessageRepository.GetReceivedEmails(sessionPageSize, currentPageNumber);
+
+			ViewBag.TotalCount = MvcApplication.ReceivedEmails.Count();
+			ViewBag.OnPageCount = model.Count;
+			
+			return model;
+		}
+
 
 	    public ActionResult Message(int id)
 	    {
@@ -53,15 +84,16 @@ namespace FakeSmtp.Controllers
 	    {
 		    ViewBag.Port = MvcApplication.SmtpServer.Port;
 		    ViewBag.IsSmtpServerOn = MvcApplication.IsSmtpServerOn;
-		    ViewBag.EmailCount = MvcApplication.SmtpServer.ReceivedEmailCount;
+		    ViewBag.MaximumLimit = MvcApplication.MaximumLimit;
+		    ViewBag.EmailCount = MvcApplication.ReceivedEmails.Count();;
 		    ViewBag.ServerName = Request.ServerVariables.Get("SERVER_NAME");
 
 			return View();
 	    }
 
-		public ActionResult Start(int port)
+		public ActionResult Start(int? port, int? limit)
 		{
-			MessageRepository.Start(port);
+			MessageRepository.Start(port, limit);
 
 			return RedirectToAction("Settings");
 		}
@@ -85,16 +117,31 @@ namespace FakeSmtp.Controllers
 		{
 			MessageRepository.SendTestEmail();
 
-			return RedirectToAction("Message", new {id = MvcApplication.SmtpServer.ReceivedEmailCount});
+			var emailId = MvcApplication.ReceivedEmails.Count();
+
+			return RedirectToAction("Message", new {id = emailId});
 		}
 
 
 		public ActionResult TestEmailPlus()
 		{
 			MessageRepository.SendTestEmailPlus();
+			
+			var emailId = MvcApplication.ReceivedEmails.Count(); 
 
-			return RedirectToAction("Message", new {id = MvcApplication.SmtpServer.ReceivedEmailCount});
+			return RedirectToAction("Message", new {id = emailId});
 		}
+
+		public ActionResult TestEmail500()
+		{
+			for (var i = 0; i < 500; i++)
+			{
+				MessageRepository.SendTestEmail();
+			}
+
+			return RedirectToAction("Messages", new { pageNumber = 1 });
+		}
+
 
 		public ActionResult Error()
 		{
@@ -103,3 +150,11 @@ namespace FakeSmtp.Controllers
 		}
     }
 }
+
+
+
+
+
+
+
+// ((List<Email>) System.Web.HttpContext.Current.Application["ReceivedEmails"]).Count;

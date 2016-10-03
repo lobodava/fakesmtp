@@ -27,6 +27,15 @@
 				<p class="form-control-static @(ViewBag.IsSmtpServerOn ? "text-muted" : "")">&#8211 Port for the Fake Smtp Server to listen</p>
 			</div>
 		</div>
+	 
+		<div class="form-group">
+			<div class="col-sm-2">
+				<input id="limit" name="limit" class="form-control text-center" type="text" value="@ViewBag.MaximumLimit"  @(ViewBag.IsSmtpServerOn ? "readonly='readonly'" : "")>
+			</div>
+			<div class="col-sm-10">
+				<p class="form-control-static @(ViewBag.IsSmtpServerOn ? "text-muted" : "")">&#8211 Maximal count of email messages to keep in memory using FIFO method</p>
+			</div>
+		</div>
 
 		<div class="form-group">
 			<div class="col-sm-2">
@@ -47,6 +56,7 @@
 				<p class="form-control-static @(ViewBag.IsSmtpServerOn ? "" : "text-muted")">&#8211 Stop the Fake Smtp Server</p>
 			</div>
 		</div>
+	 
 		<div class="form-group">
 			<div class="col-sm-2">
 				<a class="btn btn-warning form-control" href='@(Url.Action("Clear", "Home"))'>Clear <span class="badge">@ViewBag.EmailCount</span></a>
@@ -66,12 +76,22 @@
 				<p class="form-control-static @(ViewBag.IsSmtpServerOn ? "" : "text-muted")">&#8211 Send test email </p>
 			</div>
 		</div>
+	 
 		<div class="form-group">
 			<div class="col-sm-2">
 				<a class="btn btn-info form-control @(ViewBag.IsSmtpServerOn ? "" : "disabled")" href='@(Url.Action("TestEmailPlus", "Home"))'>Test email +</a>
 			</div>
 			<div class="col-sm-10">
 				<p class="form-control-static @(ViewBag.IsSmtpServerOn ? "" : "text-muted")">&#8211 Send test email with attachment</p>
+			</div>
+		</div>
+	 
+		<div class="form-group">
+			<div class="col-sm-2">
+				<a class="btn btn-info form-control @(ViewBag.IsSmtpServerOn ? "" : "disabled")" href='@(Url.Action("TestEmail500", "Home"))'>Test 500 email</a>
+			</div>
+			<div class="col-sm-10">
+				<p class="form-control-static @(ViewBag.IsSmtpServerOn ? "" : "text-muted")">&#8211 Send 500 test emails without attachment</p>
 			</div>
 		</div>
 	}

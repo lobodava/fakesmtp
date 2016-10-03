@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.Serialization;
+﻿using System.Collections.Generic;
 using System.ServiceModel;
-using System.Text;
 using FakeSmtp.Models;
 
 namespace FakeSmtp
@@ -25,7 +20,7 @@ namespace FakeSmtp
 		byte[] GetAttachmentBytesById(int emailId, int attachmentId);
 
 		[OperationContract]
-		void Start(int port);
+		void Start(int? port, int? limit);
 
 		[OperationContract]
 		void Stop();

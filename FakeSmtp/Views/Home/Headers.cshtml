@@ -1,5 +1,4 @@
-﻿@using FakeSmtp.Models
-@model List<FakeSmtp.Models.Email>
+﻿@model List<FakeSmtp.Models.Email>
 
 @{
     Layout = "../Shared/_Layout.cshtml";
@@ -22,6 +21,11 @@
 
 
 <div class="container">
+	
+	@{ ViewBag.Controller = "Headers"; }
+
+	@Html.Partial("../Home/Paging" )
+
 	<table class="table table-hover">
 		<thead>
 			<tr>

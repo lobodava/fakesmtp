@@ -5,38 +5,32 @@ using System.Linq;
 using System.Net.Mail;
 using System.Reflection;
 using System.Text;
-using System.Web;
 using FakeSmtp.Models;
-using netDumbster.smtp;
 
 namespace FakeSmtp.Repositories
 {
 	public class MessageRepository
 	{
 
-		public static List<Email> GetReceivedEmails(bool withoutRawData = true)
+		public static List<Email> GetReceivedEmails()
 		{
-			var emails = new List<Email>();
+			return MvcApplication.ReceivedEmails;
+		}
 
-			var count = MvcApplication.SmtpServer.ReceivedEmail.Count();
-
-			for (var index = 0; index < count  ; index++)
-			{
-				emails.Add(new Email(MvcApplication.SmtpServer.ReceivedEmail[index], count - index, withoutRawData));
-			}
-
-			return emails;
+		public static List<Email> GetReceivedEmails(int pageSize, int pageNumber)
+		{
+			return MvcApplication.ReceivedEmails.Skip(pageSize * (pageNumber - 1)).Take(pageSize).ToList();
 		}
 
 		public static Email GetEmailById(int id, bool withoutRawData = false )
 		{
-			var count = MvcApplication.SmtpServer.ReceivedEmail.Count();
+			var emails = MvcApplication.ReceivedEmails;
+			
+			var count = emails.Count();
 
 			if (0 < count && 0 < id && id <= count)
 			{
-				var smtpMessage = MvcApplication.SmtpServer.ReceivedEmail[count - id];
-
-				return new Email(smtpMessage, id, withoutRawData);
+				return emails[count - id];
 			}
 
 			return null;
@@ -49,6 +43,18 @@ namespace FakeSmtp.Repositories
 			if (0 < count && 0 < id && id <= count)
 			{
 				return MvcApplication.SmtpServer.ReceivedEmail[count - id].Data;
+			}
+
+			return null;
+		}
+
+		public static string GetRawDataById(List<Email> emails, int id )
+		{
+			var count = emails.Count();
+
+			if (0 < count && 0 < id && id <= count)
+			{
+				return emails[count - id].RawData;
 			}
 
 			return null;
@@ -70,24 +76,81 @@ namespace FakeSmtp.Repositories
 			return null;
 		}
 
-		public static void Start(int port)
+		public static void Start(int? port, int? limit)
 		{
-			MvcApplication.SmtpServer = SimpleSmtpServer.Start(port);
-			MvcApplication.IsSmtpServerOn = true;
+			if (port <= 0) port = 5000;
+			if (limit <= 0) limit = 1000;
+
+			MvcApplication.StartSmtpServer(port ?? 5000, limit ?? 1000);
 		}
 
 		public static void Stop()
 		{
-			MvcApplication.SmtpServer.Stop();
-			MvcApplication.IsSmtpServerOn = false;
+			MvcApplication.StopSmtpServer();
 		}
 
 
 		public static void Clear()
 		{
+			MvcApplication.ReceivedEmails.Clear();
 			MvcApplication.SmtpServer.ClearReceivedEmail();
 		}
-		
+
+		public static List<PageAnchor> GetPageAnchors(int count, int pageSize, int currentPageNumber)
+		{
+			var pageAnchors = new List<PageAnchor>();
+			
+			var pageCount = (pageSize == 0) ? 1 : (int) Math.Ceiling((decimal)count / pageSize);
+
+			
+			if (pageCount == 0) 
+			{
+				pageAnchors.Add(new PageAnchor{ PageNumber = 1, PageLabel = "1" });
+				
+			}
+			
+			else if (pageCount < 8) 
+			{
+				for (var i = 1; i <= pageCount; i++) {
+					pageAnchors.Add(new PageAnchor{ PageNumber = i, PageLabel = i.ToString() });
+				}
+			} 
+			else {
+				if (currentPageNumber <= 4) 
+				{
+					for (var i = 1; i <= 5; i++) {
+						pageAnchors.Add(new PageAnchor{ PageNumber = i, PageLabel = i.ToString() });
+					}
+					pageAnchors.Add(new PageAnchor{ PageNumber = 6, PageLabel = "..." });
+					pageAnchors.Add(new PageAnchor{ PageNumber = pageCount, PageLabel = "" + pageCount });
+				} 
+				else if (pageCount - currentPageNumber <= 3) 
+				{
+					pageAnchors.Add(new PageAnchor{ PageNumber = 1, PageLabel = "1"});
+					pageAnchors.Add(new PageAnchor{ PageNumber = pageCount - 5, PageLabel = "..." });
+					for (var i = pageCount - 4; i <= pageCount; i++) {
+						pageAnchors.Add(new PageAnchor{ PageNumber = i, PageLabel = "" + i });
+					}
+				} 
+				else 
+				{
+					pageAnchors.Add(new PageAnchor{ PageNumber = 1, PageLabel = "1"});
+					
+					pageAnchors.Add(new PageAnchor{ PageNumber = currentPageNumber - 2, PageLabel = "..." });
+					pageAnchors.Add(new PageAnchor{ PageNumber = currentPageNumber - 1, PageLabel = "" + (currentPageNumber - 1)});
+					pageAnchors.Add(new PageAnchor{ PageNumber = currentPageNumber, PageLabel = "" + currentPageNumber});
+					pageAnchors.Add(new PageAnchor{ PageNumber = currentPageNumber + 1, PageLabel = "" + (currentPageNumber + 1)});
+					pageAnchors.Add(new PageAnchor{ PageNumber = currentPageNumber + 2, PageLabel = "..."});
+					
+					pageAnchors.Add(new PageAnchor{ PageNumber = pageCount, PageLabel = "" + pageCount});
+				}
+			
+			}
+			return pageAnchors;
+
+		} 
+
+
 		#region [ Test Messages ]
 
 		public static void SendTestEmail()
@@ -142,4 +205,11 @@ namespace FakeSmtp.Repositories
 
 		#endregion
 	}
+
+	public class PageAnchor
+	{
+		public int PageNumber { get; set; }
+		public string PageLabel { get; set; }
+	}
+	
 }

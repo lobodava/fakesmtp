@@ -1,0 +1,35 @@
+﻿
+<style>
+	.pagination {
+		margin-top: 5px;
+	}
+</style>
+
+<div class="row">
+			
+	<div class="col-sm-5">
+		<ul class="pagination">
+			<li class="@(ViewBag.PageSize == 10 ? "active" : "")">@Html.ActionLink("10", (string)ViewBag.Controller, "Home", new {pageSize = 10}, null)</li>
+			<li class="@(ViewBag.PageSize == 20 ? "active" : "")">@Html.ActionLink("20", (string)ViewBag.Controller, "Home", new {pageSize = 20}, null)</li>
+			<li class="@(ViewBag.PageSize == 50 ? "active" : "")">@Html.ActionLink("50", (string)ViewBag.Controller, "Home", new {pageSize = 50}, null)</li>
+			<li class="@(ViewBag.PageSize == 100 ? "active" : "")">@Html.ActionLink("100", (string)ViewBag.Controller, "Home", new {pageSize = 100}, null)</li>
+			<li class="@(ViewBag.PageSize == 0 ? "active" : "")">@Html.ActionLink("All", (string)ViewBag.Controller, "Home", new {pageSize = 0}, null)</li>
+		</ul>
+	</div>
+
+	<div class="col-sm-2 text-center">
+		<ul class="pagination">
+			<li class="active"><a>@ViewBag.OnPageCount of @ViewBag.TotalCount</a></li>
+		</ul>
+	</div>
+
+	<div class="col-sm-5">
+		<ul class="pagination pull-right">
+			@foreach (var pageAnchor in ViewBag.PageAnchors)
+			{
+				<li class="@(ViewBag.PageNumber == pageAnchor.PageNumber ? "active" : "")"><a href="/@ViewBag.Controller?pageNumber=@pageAnchor.PageNumber">@pageAnchor.PageLabel</a></li>
+			}	
+		</ul>
+	</div>
+
+</div>

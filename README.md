@@ -1,4 +1,4 @@
-# Fake Smtp -  a web interface for the fake smtp server
+# Fake Smtp -  web interface for the fake smtp server
 
 ##The problem solved
 
